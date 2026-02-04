@@ -1,7 +1,9 @@
 # Dynamic Question & Response Management System
 
-A full-stack MERN application developed as part of the technical assessment for the **MERN Developer position at Dhaka Apps Limited**.  
-This system allows administrators to dynamically create question sets and manage questions, while users can take tests and submit responses. All submissions can later be reviewed in detail by the admin.
+A full-stack **MERN application** developed as part of the technical assessment for the  
+**MERN Developer position at Dhaka Apps Limited**.
+
+This system allows **Admins** to dynamically create question sets and manage questions, while **Users** can take tests and submit responses. All submissions are securely stored and can be reviewed in detail by the admin.
 
 ---
 
@@ -18,37 +20,43 @@ This system allows administrators to dynamically create question sets and manage
 ## 🎯 Project Objective
 
 To build a web-based system where:
-- Admins can create and manage different types of questions dynamically.
-- Users can view available tests, answer questions, and submit responses.
-- All responses are stored securely and can be reviewed later by the admin.
+
+- Admins can create and manage different types of questions dynamically
+- Users can view available tests, answer questions, and submit responses
+- All responses are stored in the database and can be reviewed later in detail
 
 ---
 
 ## 🧰 Technology Stack
 
-**Frontend**
+### Frontend
+
 - React.js (Vite)
 - React Router DOM
 - Context API
 - Tailwind CSS
 
-**Backend**
+### Backend
+
 - Node.js
 - Express.js
 - RESTful APIs
 
-**Database**
+### Database
+
 - MongoDB (Mongoose)
 
-**Authentication**
+### Authentication
+
 - JWT (JSON Web Token)
-- Role-based access (Admin / User)
+- Role-based access control (Admin / User)
 
 ---
 
 ## ✨ Features
 
 ### Admin Features
+
 - Register and login as Admin
 - Create, update, and delete Question Sets
 - Add and manage questions dynamically:
@@ -59,6 +67,7 @@ To build a web-based system where:
 - View detailed responses for each submission (question-wise answers)
 
 ### User Features
+
 - Register and login as User
 - View available question sets
 - Take tests with dynamically rendered inputs based on question type
@@ -68,13 +77,13 @@ To build a web-based system where:
 
 ---
 
-## 🧠 Question Types Supported
+## 🧠 Supported Question Types
 
-| Type | Description |
-|----|----|
-| MCQ | Multiple options with optional correct answer |
-| True / False | Boolean choice |
-| Descriptive | Long text answer |
+| Type         | Description                                   |
+| ------------ | --------------------------------------------- |
+| MCQ          | Multiple options with optional correct answer |
+| True / False | Boolean choice                                |
+| Descriptive  | Long text answer                              |
 
 ---
 
@@ -83,70 +92,119 @@ To build a web-based system where:
 ```text
 Dynamic-Question-Response-System/
 ├── Q-and-A-management-server/
-│   ├── controllers/      # হ্যান্ডলার ফাংশনসমূহ
-│   ├── models/           # ডাটাবেস স্কিমা (Mongoose)
-│   ├── routes/           # API রাউটসমূহ
-│   ├── middlewares/      # অথেন্টিকেশন ও অন্যান্য মিডলওয়্যার
-│   ├── config/           # ডাটাবেস কানেকশন সেটআপ
-│   ├── app.js            # এক্সপ্রেস অ্যাপ কনফিগারেশন
-│   └── server.js         # সার্ভার এন্ট্রি পয়েন্ট
+│   ├── controllers/      # Controller functions
+│   ├── models/           # Database schemas (Mongoose)
+│   ├── routes/           # API routes
+│   ├── middlewares/      # Authentication & role protection
+│   ├── config/           # Database connection setup
+│   ├── app.js            # Express app configuration
+│   └── server.js         # Server entry point
 │
 ├── Q-and-A-management-client/
 │   ├── src/
-│   │   ├── components/   # রিইউজেবল UI কম্পোনেন্ট
-│   │   ├── pages/        # অ্যাপের পেজসমূহ (Admin/User)
-│   │   ├── context/      # স্টেট ম্যানেজমেন্ট (Auth Context)
-│   │   ├── config/       # API বেস URL ও কনফিগ
-│   │   └── main.jsx      # মেইন এন্ট্রি ফাইল
+│   │   ├── components/   # Reusable UI components
+│   │   ├── pages/        # Application pages (Admin / User)
+│   │   ├── context/      # Context API (Auth state)
+│   │   ├── config/       # API base URL configuration
+│   │   └── main.jsx      # Main entry file
 │   └── index.html
 │
 └── README.md
-
-
-
+```
 
 ---
 
-## ⚙️ Environment Variables
+## 🚀 Getting Started
 
-Create a `.env` file in the **backend root directory** with the following variables:
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (local or Atlas)
+- Git
+
+### ⚙️ Environment Variables
+
+Create a `.env` file in the backend directory (`Q-and-A-management-server/`) and add:
 
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
+```
 
-
-
-
-## 🚀 How to Run the Project Locally
-
-### Backend Setup
-
-1. সার্ভার ফোল্ডারে প্রবেশ করুন:
-cd Q-and-A-management-server
-
-2. প্রয়োজনীয় প্যাকেজ ইন্সটল করুন:
-npm install
-
-3. এনভায়রনমেন্ট ভেরিয়েবল (.env) ফাইল তৈরি করে তাতে MongoDB URI এবং JWT Secret যুক্ত করুন।
-
-4. সার্ভার চালু করুন:
-npm run dev
-
-সার্ভার ইউআরএল: http://localhost:5000
+⚠️ **Important:** Never push your `.env` file to GitHub.
 
 ---
 
-### Frontend Setup
+## 📖 Installation & Setup
 
-1. ক্লায়েন্ট ফোল্ডারে প্রবেশ করুন:
-cd Q-and-A-management-client
+### Backend Setup
 
-2. প্রয়োজনীয় প্যাকেজ ইন্সটল করুন:
+```bash
+# Navigate to backend directory
+cd Q-and-A-management-server
+
+# Install dependencies
 npm install
 
-3. ক্লায়েন্ট সাইড চালু করুন:
-npm run dev
+# Create .env file with MongoDB URI and JWT Secret
+# (see Environment Variables section above)
 
-ক্লায়েন্ট ইউআরএল: http://localhost:5173
+# Start development server
+npm run dev
+```
+
+**Backend runs on:** `http://localhost:5000`
+
+### Frontend Setup
+
+```bash
+# Navigate to frontend directory
+cd Q-and-A-management-client
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+**Frontend runs on:** `http://localhost:5173`
+
+---
+
+## ✅ User Guide
+
+### Admin Workflow
+
+1. **Register & Login** - Create admin account
+2. **Create Question Set** - Add a new test/question set
+3. **Manage Questions** - Add MCQ, True/False, or Descriptive questions
+4. **Review Submissions** - View all user responses
+5. **View Details** - Check question-wise answers for each submission
+
+### User Workflow
+
+1. **Register & Login** - Create user account
+2. **Browse Tests** - View available question sets
+3. **Take Test** - Answer questions based on their type
+4. **Submit Responses** - Submit all answers
+5. **Confirmation** - View submission success message
+
+---
+
+## 📝 API Documentation
+
+Refer to the backend README for detailed API endpoint documentation and request/response examples.
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repository and submit pull requests for any improvements.
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
