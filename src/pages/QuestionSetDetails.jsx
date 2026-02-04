@@ -77,7 +77,7 @@ const QuestionSetDetails = () => {
                     return;
                 }
             } else {
-                // Descriptive - no options, maybe no auto-correct answer check
+                
                 payload.correctAnswer = "";
             }
 
